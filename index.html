@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farhan Septiansyah | Digital Enthusiast</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap");
+
+      :root {
+        --accent: #3b82f6;
+        --bg: #030303;
+        --text-main: #ffffff;
+        --text-sub: #a1a1aa;
+        --card-bg: rgba(255, 255, 255, 0.03);
+        --border: rgba(255, 255, 255, 0.05);
+      }
+
+      .light-mode {
+        --accent: #2563eb;
+        --bg: #f8fafc;
+        --text-main: #0f172a;
+        --text-sub: #4b5563;
+        --card-bg: rgba(0, 0, 0, 0.03);
+        --border: rgba(0, 0, 0, 0.08);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text-main);
+        font-family: "Plus Jakarta Sans", sans-serif;
+        transition:
+          background 0.5s ease,
+          color 0.5s ease;
+        overflow-x: hidden;
+      }
+
+      #mouse-glow {
+        position: fixed;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(59, 130, 246, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -1;
+        transform: translate(-50%, -50%);
+      }
+
+      .typewriter h1 {
+        overflow: hidden;
+        border-right: 3px solid var(--accent);
+        white-space: nowrap;
+        width: fit-content;
+        animation:
+          typing 3s steps(30, end),
+          blink 0.75s step-end infinite;
+      }
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+
+      .neon-stroke {
+        -webkit-text-stroke: 1.5px var(--accent);
+        color: transparent;
+        text-shadow: 0 0 0px var(--accent);
+        transition: 0.5s;
+      }
+      .neon-stroke:hover {
+        color: var(--accent);
+        text-shadow: 0 0 20px var(--accent);
+      }
+
+      .cute-float {
+        animation: cute-float 5s ease-in-out infinite;
+      }
+      @keyframes cute-float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg) scale(1);
+        }
+        50% {
+          transform: translateY(-25px) rotate(8deg) scale(1.1);
+        }
+      }
+
+      .glass-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(15px);
+        border: 1px solid var(--border);
+        transition: 0.4s;
+      }
+      .glass-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-5px);
+      }
+
+      #cursor-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        position: fixed;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+      }
+      #cursor-outline {
+        width: 40px;
+        height: 40px;
+        border: 2px solid var(--accent);
+        position: fixed;
+        border-radius: 50%;
+        pointer-events: none;
+        transition: 0.1s ease-out;
+        z-index: 9999;
+      }
+
+      .txt-sub {
+        color: var(--text-sub);
+      }
+
+      .tech-badge {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
+    <div id="mouse-glow"></div>
+
+    <nav
+      class="fixed w-full z-50 p-6 flex justify-between items-center backdrop-blur-xl border-b border-white/5"
+    >
+      <div class="font-bold text-xl tracking-tighter italic text-blue-500">
+        FS
+      </div>
+      <div
+        class="hidden md:flex gap-8 text-[10px] uppercase tracking-widest font-black opacity-60"
+      >
+        <a href="#intro" class="hover:text-blue-500 transition">Intro</a>
+        <a href="#about" class="hover:text-blue-500 transition">About</a>
+        <a href="#experience" class="hover:text-blue-500 transition"
+          >Experience</a
+        >
+        <a href="#event" class="hover:text-blue-500 transition">Events</a>
+        <a href="#awards" class="hover:text-blue-500 transition">Awards</a>
+        <a href="#education" class="hover:text-blue-500 transition"
+          >Education</a
+        >
+      </div>
+      <button
+        onclick="document.body.classList.toggle('light-mode')"
+        class="text-lg p-2 glass-card rounded-full"
+      >
+        🌓
+      </button>
+    </nav>
+
+    <section id="intro" class="min-h-screen flex items-center px-10 md:px-24">
+      <div
+        class="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-10 items-center"
+      >
+        <div class="lg:col-span-8">
+          <p
+            class="text-blue-500 font-bold tracking-[0.5em] text-[10px] mb-6 uppercase"
+            data-aos="fade-right"
+          >
+            Digital Technology & Creative Enthusiast
+          </p>
+          <div class="typewriter mb-2">
+            <h1
+              class="text-5xl md:text-8xl font-extrabold tracking-tighter leading-[0.9]"
+            >
+              Hello, I am Farhan
+            </h1>
+          </div>
+          <h1
+            class="text-5xl md:text-8xl font-extrabold tracking-tighter neon-stroke"
+          >
+            Septiansyah.
+          </h1>
+          <p class="mt-10 max-w-xl txt-sub text-lg leading-relaxed">
+            Digital explorer with a strong foundation in
+            <span class="text-blue-500 font-bold"
+              >technology and creative innovation</span
+            >. Specializing in the intersection of technical systems and visual
+            storytelling to and
+            <span class="text-blue-500 font-bold"
+              >build impactful, meaningful digital experiences</span
+            >.
+          </p>
+        </div>
+
+        <div
+          class="lg:col-span-4 flex flex-col gap-16 items-center lg:items-end"
+        >
+          <div
+            class="cute-float text-center group cursor-default"
+            data-aos="fade-left"
+          >
+            <div
+              class="text-7xl mb-4 transition-transform group-hover:scale-125"
+            >
+              💻
+            </div>
+            <h4
+              class="text-xs font-bold uppercase tracking-widest text-blue-500"
+            >
+              Technology
+            </h4>
+            <p class="text-[10px] txt-sub mt-1 italic">IT Support & UI/UX</p>
+          </div>
+          <div
+            class="cute-float text-center group cursor-default"
+            style="animation-delay: -2.5s"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
+            <div
+              class="text-7xl mb-4 transition-transform group-hover:scale-125"
+            >
+              ✨
+            </div>
+            <h4
+              class="font-bold text-xs uppercase tracking-widest text-pink-500"
+            >
+              Creative
+            </h4>
+            <p class="text-[10px] txt-sub mt-1 italic">
+              Crafting Visual Stories
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="about"
+      class="py-32 px-10 md:px-24 border-t border-white/5 bg-white/[0.02]"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+          <div data-aos="fade-right">
+            <h2 class="text-4xl font-black mb-8 uppercase tracking-tighter">
+              About Me
+            </h2>
+            <div class="w-20 h-1 bg-blue-500 mb-8"></div>
+
+            <!-- <p class="text-lg leading-relaxed txt-sub mb-6">
+                        Saya adalah mahasiswa <span class="text-white font-semibold">Rekayasa Instrumentasi dan Automasi</span> di <span class="text-blue-500 font-semibold">ITERA</span>. Memiliki minat mendalam di bidang robotika, pengembangan sistem IoT berbasis ESP32, serta pengembangan web menggunakan PHP & MySQL.
+                    </p> -->
+            <p class="text-lg leading-relaxed txt-sub mb-10">
+              <span class="text-blue-500 font-semibold"
+                >Digital Technology</span
+              >
+              and
+              <span class="text-white font-semibold">Creative Enthusiast</span>
+              with a strong focus on intelligent systems and web-based
+              solutions. Passionate about building efficient, scalable, and
+              impactful digital innovations through technology and creativity.
+            </p>
+
+            <a
+              href="https://drive.google.com/file/d/1_0dLQqTZ34egj1r9AmZqgrLMH3Fg-qjj/view?usp=sharing"
+              class="inline-block bg-white text-black px-12 py-4 rounded-lg font-bold hover:bg-blue-500 hover:text-white transition duration-300 uppercase tracking-widest text-sm mb-12"
+            >
+              Download Resume
+            </a>
+
+            <h4
+              class="text-xs font-bold uppercase tracking-[0.3em] text-blue-500 mb-6"
+            >
+              Tech Stack
+            </h4>
+            <div class="flex flex-wrap gap-3">
+              <span class="tech-badge">C / C++</span>
+              <span class="tech-badge">PHP</span>
+              <span class="tech-badge">MySQL</span>
+              <span class="tech-badge">Tailwind CSS</span>
+              <span class="tech-badge">Internet Of Things</span>
+              <span class="tech-badge">Robotics</span>
+              <span class="tech-badge">UI/UX</span>
+              <span class="tech-badge">Design</span>
+              <span class="tech-badge">Photography</span>
+              <span class="tech-badge">Videography</span>
+            </div>
+          </div>
+
+          <div class="relative group" data-aos="fade-left">
+            <div
+              class="absolute -inset-4 bg-blue-500/20 rounded-[2rem] blur-2xl group-hover:bg-blue-500/30 transition"
+            ></div>
+            <img
+              src="assets/hann.png"
+              alt="Farhan Septiansyah"
+              class="relative w-full aspect-[4/5] object-cover rounded-[2rem] border border-white/10 grayscale hover:grayscale-0 transition duration-500 shadow-2xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="experience"
+      class="py-32 px-10 md:px-24 border-t border-white/5"
+    >
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-black mb-20 tracking-tighter uppercase">
+          Work Experience
+        </h2>
+        <div class="grid lg:grid-cols-1 gap-8">
+          <div class="glass-card p-10 rounded-[3rem]" data-aos="fade-up">
+            <div class="flex justify-between items-start mb-6">
+              <div>
+                <h3 class="text-2xl font-bold" style="font-style: italic">
+                  Videografer (Intern)
+                </h3>
+                <p class="text-blue-500 font-bold text-sm">HUMAS ITERA</p>
+              </div>
+              <span class="text-xs font-bold opacity-30 uppercase"
+                >2025 - 2026</span
+              >
+            </div>
+          </div>
+          <div
+            class="glass-card p-10 rounded-[3rem]"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div>
+                <h3 class="text-2xl font-bold" style="font-style: italic">
+                  IT Support (Intern)
+                </h3>
+                <p class="text-zinc-500 font-bold text-sm">
+                  PT. Kedaung Oriental Porcelain Industry
+                </p>
+              </div>
+              <span class="text-xs font-bold opacity-30 uppercase">2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="event"
+      class="py-32 px-10 md:px-24 border-t border-white/5 bg-white/5"
+    >
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-black mb-16 tracking-tighter uppercase">
+          Organization & Events
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="glass-card p-10 rounded-[2.5rem]" data-aos="fade-up">
+            <h4 class="font-bold text-blue-500 mb-2">PPLK ITERA 2025</h4>
+            <p class="text-sm font-bold mb-2">
+              Divisi PMPD Subdivisi Publikasi
+            </p>
+            <span class="text-[10px] opacity-30 font-black">AGUSTUS 2025</span>
+          </div>
+          <div
+            class="glass-card p-10 rounded-[2.5rem]"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h4 class="font-bold text-pink-500 mb-2">FTI EXPO ITERA 2025</h4>
+            <p class="text-sm font-bold mb-2">Publikasi dan Dokumentasi</p>
+            <span class="text-[10px] opacity-30 font-black">NOVEMBER 2025</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" class="py-32 px-10 md:px-24 border-t border-white/5">
+      <div class="max-w-6xl mx-auto">
+        <h2
+          class="text-4xl font-black mb-16 tracking-tighter uppercase text-center"
+        >
+          Achievements
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+          <div
+            class="glass-card p-8 rounded-[2.5rem] border-l-4 border-blue-500"
+            data-aos="zoom-in"
+          >
+            <h4 class="font-bold text-sm">
+              Awardee Beasiswa BSI Scholarship Inspirasi
+            </h4>
+            <p class="text-[10px] opacity-40 mt-2 txt-sub uppercase">
+              Bank Syariah Indonesia | 2025
+            </p>
+          </div>
+          <div
+            class="glass-card p-8 rounded-[2.5rem] border-l-4 border-emerald-500"
+            data-aos="zoom-in"
+          >
+            <h4 class="font-bold text-sm">
+              Juara 1 Debugging Code Competition
+            </h4>
+            <p class="text-[10px] opacity-40 mt-2 txt-sub uppercase">
+              Hima Instrumentasi ITERA | 2025
+            </p>
+          </div>
+          <div
+            class="glass-card p-8 rounded-[2.5rem] border-l-4 border-rose-500"
+            data-aos="zoom-in"
+          >
+            <h4 class="font-bold text-sm">
+              Juara 1 Lomba Video Pendek FLS2N Tingkat Provinsi Banten
+            </h4>
+            <p class="text-[10px] opacity-40 mt-2 txt-sub uppercase">
+              Puspresnas | 2022
+            </p>
+          </div>
+          <div
+            class="glass-card p-8 rounded-[2.5rem] border-l-4 border-purple-500"
+            data-aos="zoom-in"
+          >
+            <h4 class="font-bold text-sm">
+              Juara 2 Lomba Debat Industri Tingkat Provinsi Banten
+            </h4>
+            <p class="text-[10px] opacity-40 mt-2 txt-sub uppercase">
+              Universitas Faletehan | 2024
+            </p>
+          </div>
+          <div
+            class="glass-card p-8 rounded-[2.5rem] border-l-4 border-yellow-500"
+            data-aos="zoom-in"
+          >
+            <h4 class="font-bold text-sm">
+              Juara 1 Lomba Debat Pariwisata Tingkat Tangerang Raya
+            </h4>
+            <p class="text-[10px] opacity-40 mt-2 txt-sub uppercase">
+              Matana University | 2023
+            </p>
+          </div>
+          <div
+            class="glass-card p-8 rounded-[2.5rem] border-l-4 border-cyan-500"
+            data-aos="zoom-in"
+          >
+            <h4 class="font-bold text-sm">
+              Duta Persahabatan Anak Kab. Tangerang
+            </h4>
+            <p class="text-[10px] opacity-40 mt-2 txt-sub uppercase">
+              DP3A Kab. Tangerang | 2020
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="py-32 px-10 md:px-24 border-t border-white/5">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-black uppercase tracking-tighter mb-4">
+            Connect With Me
+          </h2>
+          <p class="txt-sub">
+            Yuk, terhubung dengan saya lewat platform di bawah ini.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <a
+            href="https://instagram.com/farhansee_"
+            target="_blank"
+            class="glass-card p-8 rounded-[2rem] flex flex-col items-center group transition-all"
+            data-aos="zoom-in"
+          >
+            <div
+              class="text-4xl mb-4 group-hover:scale-125 transition duration-300"
+            >
+              📸
+            </div>
+            <span class="font-bold text-sm uppercase tracking-widest"
+              >Instagram</span
+            >
+            <span class="text-[10px] opacity-40 mt-2">@farhansee_</span>
+          </a>
+
+          <a
+            href="https://linkedin.com/in/farhanseptian24/"
+            target="_blank"
+            class="glass-card p-8 rounded-[2rem] flex flex-col items-center group transition-all"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div
+              class="text-4xl mb-4 group-hover:scale-125 transition duration-300"
+            >
+              💼
+            </div>
+            <span class="font-bold text-sm uppercase tracking-widest"
+              >LinkedIn</span
+            >
+            <span class="text-[10px] opacity-40 mt-2">Farhan Septiansyah</span>
+          </a>
+
+          <a
+            href="mailto:farhanseptian24@gmail.com"
+            class="glass-card p-8 rounded-[2rem] flex flex-col items-center group transition-all"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div
+              class="text-4xl mb-4 group-hover:scale-125 transition duration-300"
+            >
+              📧
+            </div>
+            <span class="font-bold text-sm uppercase tracking-widest"
+              >Email</span
+            >
+            <span class="text-[10px] opacity-40 mt-2"
+              >farhanseptian24@gmail.com</span
+            >
+          </a>
+
+          <a
+            href="https://github.com/FarhanSeptian"
+            target="_blank"
+            class="glass-card p-8 rounded-[2rem] flex flex-col items-center group transition-all"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div
+              class="text-4xl mb-4 group-hover:scale-125 transition duration-300"
+            >
+              🐙
+            </div>
+            <span class="font-bold text-sm uppercase tracking-widest"
+              >GitHub</span
+            >
+            <span class="text-[10px] opacity-40 mt-2"
+              >github.com/FarhanSeptian</span
+            >
+          </a>
+        </div>
+      </div>
+    </section>
+    <footer
+      class="py-20 text-center opacity-30 text-[10px] tracking-[0.5em] uppercase border-t border-white/5"
+    >
+      Built with Passion • Farhan Septiansyah Efendi • 2026
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: false });
+      const glow = document.getElementById("mouse-glow");
+      document.addEventListener("mousemove", (e) => {
+        glow.style.left = e.clientX + "px";
+        glow.style.top = e.clientY + "px";
+      });
+      const dot = document.getElementById("cursor-dot");
+      const outline = document.getElementById("cursor-outline");
+      window.addEventListener("mousemove", (e) => {
+        dot.style.left = e.clientX + "px";
+        dot.style.top = e.clientY + "px";
+        setTimeout(() => {
+          outline.style.left = e.clientX - 16 + "px";
+          outline.style.top = e.clientY - 16 + "px";
+        }, 50);
+      });
+    </script>
+  </body>
+</html>
